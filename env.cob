@@ -580,36 +580,67 @@
         display "2 - Créer un compte"
         display "0 - Quitter"
         accept connexionChoix
-        
-        
-        
-        if connexionChoix = 1 then
-                open input fCom
-                perform with test after until connexionOk = 1
-                        display "Identifiant : "
-                        accept fCom_id
-                        display "Mot de Passe : "
-                        accept connexionMotDePasse
-                        read fCom
-                        invalid key
-                                display "L'identifiant n'existe pas"
-                        not invalid key
-                                if connexionMotDePasse = fCom_motDePasse
-                                then
-                                        move 1 to connexionOk
-                                        if fCom_role = 0 then
-                                                move 0 to roleUser
-                                                perform Alchimiste
-                                        else
-                                                move 1 to roleUser
-                                                perform Client
-                                        end-if
-                                end-if
-                        end-read
-                 end-perform
-                 close fCom
-        end-if
+        if connexionChoix < 0 and connexionChoix > 2 then
+                        display "Saisie incorrecte"
+                end-if
+        evaluate connexionChoix
+                when 1
+                        open input fCom
+		        perform with test after until connexionOk = 1
+		                display "Identifiant : "
+		                accept fCom_id
+		                display "Mot de Passe : "
+		                accept connexionMotDePasse
+		                read fCom
+		                invalid key
+		                        display "L'identifiant n'existe pas"
+		                not invalid key
+		                        if connexionMotDePasse = fCom_motDePasse
+		                        then
+		                                move 1 to connexionOk
+		                                if fCom_role = 0 then
+		                                        move 0 to roleUser
+		                                        perform Alchimiste
+		                                else
+		                                        move 1 to roleUser
+		                                        perform Client
+		                                end-if
+		                        end-if
+		                end-read
+		         end-perform
+		         close fCom
+                when 2
+                	OPEN i-o fCom
+                        DISPLAY "===============NOUVEAU COMPTE======",
+                        "============"
+                        DISPLAY "Identifiant :"
+                        ACCEPT fCom_id
+                        DISPLAY "----------------------------"
+                        DISPLAY "Mot de passe :"
+                        ACCEPT fCom_motDePasse
+                        DISPLAY "----------------------------"
+                        DISPLAY "Role : 0- ALCHIMISTE | 1- CLIENT"
+                        ACCEPT fCom_role
+                        
+                        if fCom_role < 0 
+                        and fCom_role > 2 
+                        then
+                        	display "Saisie incorrecte"
+               		end-if
 
+                        DISPLAY "===================================",
+                        "=============="
+                                   
+                        WRITE tamp_fCom END-WRITE
+                        IF cr_fCom = 00 THEN 
+                        	DISPLAY "COMPTE CREE"
+                        END-IF
+                        
+                when 0
+                        display "Vous quittez."
+        end-evaluate
+        
+  
 
         STOP RUN.
 
