@@ -70,13 +70,9 @@
                 02 fPot_prix PIC 9(4).
         FD fVen.
         01 tamp_fVen.
-                02 fVen_id.
-                         03 fVen_annee PIC 9(4).
-                         03 fVen_mois PIC 9(2).
-                         03 fVen_jour PIC 9(2).
                 02 fVen_nomPotion PIC A(30).
                 02 fVen_quantite PIC 9(4).
-                02 fVen_prix PIC 9(10).
+                02 fVen_Prix PIC 9(10).
 
         FD fCom.
         01 tamp_fCom.
@@ -147,6 +143,17 @@
         77 recetteInChoix PIC A(30).
         77 recetteInCnt PIC 9(3).
         77 recetteInOK PIC 9.
+        77 stockIngredientsChoix PIC 9.
+        77 stockIngredientsOk PIC 9.
+        77 ingredientFin PIC 9.
+        77 typeIng PIC A(10).
+        77 nomIng PIC A(30).
+        77 potionAchatNom PIC A(30).
+        77 potionAchatQuantite PIC 9(4).
+        77 potionAchatPrix PIC 9(4).
+        77 ingQuantite PIC 9(4).
+        77 ingPrix PIC 9(4).
+        77 result PIC 9(5).
 
 
 
@@ -1170,14 +1177,14 @@
         evaluate alchimisteChoix
                 when 1
                         perform CreerPotion
-      *>          when 2
-      *>                perform AcheterIngredients
+                when 2
+                        perform AcheterIngredients
                 when 3
                         perform ConsulterRecettes
                 when 4
                         perform ConsulterStockPotion
-      *>          when 5
-      *>                perform ConsulterStockIngredients
+                when 5
+                        perform ConsulterStockIngredients
       *>          when 6
       *>                  perform ConsulterRegistreVentes
         	when 7
@@ -1251,6 +1258,207 @@
                         end-if
         end-evaluate.
 
+
+      *> Menu Consulter Stock d'ingredients
+        ConsulterStockIngredients.
+        move 0 to stockIngredientsOk
+        perform with test after until stockIngredientsOk = 1
+                display "1- Afficher toutes les ingredients"
+                display "2- Rechercher un ingredient selon son type"
+                display "3- rechercher un ingredient selon son nom"
+                display "0- Quitter"
+                accept stockIngredientsChoix
+                if stockIngredientsChoix >= 0 and 
+                   stockIngredientsChoix < 4  then
+                        move 1 to stockIngredientsOk
+                else
+                        display "Saisie incorrecte"
+                end-if
+        end-perform
+        evaluate stockIngredientsChoix
+                when 1
+                        perform AfficherIngredients
+                when 2
+                        perform RechercherIngredientsType
+                when 3
+                        perform RechercherIngredientsNom
+                when 0
+                        display "Vous quittez."
+                        if roleUser = 0 then
+                           
+                                perform Alchimiste
+                        else
+                                perform Client
+                        end-if
+        end-evaluate.
+
+       AcheterIngredients.
+
+       OPEN input fVen
+       MOVE 0 TO StatsPotFin
+       MOVE 0 TO totalMoney
+       PERFORM WITH TEST AFTER UNTIL StatsPotFin = 1
+       	READ fVen
+       	AT END MOVE 1 TO StatsPotFin
+       	NOT AT END 
+       	   ADD fVen_Prix TO totalMoney
+       	   END-READ
+       END-PERFORM
+       CLOSE fVen
+       
+        display "Entrez un nom de l’ingrédient à acheter : "
+        accept fIn_nomIn
+        move fIn_nomIn to nomIng
+        open input fIn
+        move 0 to ingredientFin
+        start fPot, key is = fIn_nomIn
+        invalid key display "Pas d'ingredient avec ce nom existant"
+        not invalid key
+                perform with test after until ingredientFin = 1
+                        read fIn next
+                        at end move 1 to ingredientFin
+                        not at end
+                                if fIn_nomIn = nomIng
+                                then
+                                   move fIn_prix to ingPrix
+                                end-if
+                        end-read
+                end-perform
+        end-start
+        close fIn
+       
+       display "Entrez le nombre voulu :"
+       accept fIn_quantite
+       multiply fIn_quantite by ingPrix giving result
+       move fIn_quantite to ingQuantite
+       if result > totalMoney then 
+           move nomIng to fIn_nomIn
+           open input fIn
+           move 0 to ingredientFin
+           start fPot, key is = fIn_nomIn
+           invalid key display "Pas d'ingredient avec ce nom existant"
+           not invalid key
+                   perform with test after until ingredientFin = 1
+                           read fIn next
+                           at end move 1 to ingredientFin
+                           not at end
+                                   if fIn_nomIn = nomIng
+                                   then
+                                      subtract ingQuantite
+                                            from fIn_quantite
+                                      rewrite tamp_fIn end-rewrite 
+                                   end-if
+                           end-read
+                   end-perform
+           end-start
+           close fIn
+        else   
+           display "Pas assez d'argent pour acheter les ingredients"
+        end-if 
+        if roleUser = 0 then
+              perform Alchimiste
+        else
+              perform Client
+        end-if.
+
+
+       AfficherIngredients.
+
+       open input fIn
+       move 0 to ingredientFin
+       PERFORM WITH TEST AFTER UNTIL ingredientFin = 1
+
+              READ fIn NEXT
+              AT END
+                move 1 to ingredientFin
+              NOT AT END
+                        display " "
+                        display "Nom :", fIn_nomIn
+                        display "---------------------------------------"
+                        display "Quantité :", fIn_quantite
+                        display "Type :", fIn_type
+                        display "Prix :", fIn_prix
+              END-READ
+       END-PERFORM
+       close fIn
+       if roleUser = 0 then
+              perform Alchimiste
+       else
+              perform Client
+       end-if.
+
+       
+       RechercherIngredientsType.
+
+        display "Entrez un type"
+        accept fIn_type
+        move fIn_type to typeIng
+        open input fIn
+        move 0 to ingredientFin
+        start fPot, key is = fIn_type
+        invalid key display "Pas d'ingredient de ce type existant"
+        not invalid key
+                display "---------------------------------------"
+                perform with test after until ingredientFin = 1
+                        read fIn next
+                        at end move 1 to ingredientFin
+                        not at end
+                                if fIn_type = typeIng
+                                then
+
+                        display " "
+                        display "Nom :", fIn_nomIn
+                        display "---------------------------------------"
+                        display "Quantité :", fIn_quantite
+                        display "Type :", fIn_type
+                        display "Prix :", fIn_prix
+
+                                end-if
+                        end-read
+                end-perform
+        end-start
+        close fIn
+        if roleUser = 0 then
+              perform Alchimiste
+        else
+              perform Client
+        end-if.
+
+        RechercherIngredientsNom.
+
+        display "Entrez un nom"
+        accept fIn_nomIn
+        move fIn_nomIn to nomIng
+        open input fIn
+        move 0 to ingredientFin
+        start fPot, key is = fIn_nomIn
+        invalid key display "Pas d'ingredient avec ce nom existant"
+        not invalid key
+                display "---------------------------------------"
+                perform with test after until ingredientFin = 1
+                        read fIn next
+                        at end move 1 to ingredientFin
+                        not at end
+                                if fIn_nomIn = nomIng
+                                then
+
+                        display " "
+                        display "Nom :", fIn_nomIn
+                        display "---------------------------------------"
+                        display "Quantité :", fIn_quantite
+                        display "Type :", fIn_type
+                        display "Prix :", fIn_prix
+
+                                end-if
+                        end-read
+                end-perform
+        end-start
+        close fIn
+        if roleUser = 0 then
+              perform Alchimiste
+        else
+              perform Client
+        end-if.
 
       *> Menu RegistreVentes
         ConsulterRegistreVentes.
@@ -1447,6 +1655,11 @@
                                 if fPot_nom = nomPot
                                 then
                                         move 1 to potionDispo
+                                        move fPot_nom to potionAchatNom
+                                        move fPot_quantite 
+                                           to potionAchatQuantite
+                                        move fPot_prix 
+                                           to potionAchatPrix
                                 end-if
                         end-read
                 end-perform
@@ -1459,6 +1672,7 @@
         perform RechercherPotionNomDispo
         if potionDispo = 1 then
                perform SoustraireQuantitePotion
+               perform AjoutVente
                display "Cette potion a bien été achetée"
         else
                display "Cette potion n'est pas disponible en stock."
@@ -1486,13 +1700,19 @@
                                 then
                                         subtract 1 from fPot_quantite
                                         rewrite tamp_fPot end-rewrite
-                                        display cr_fPot
                                 end-if
                         end-read
                 end-perform
         end-start
         close fPot.
 
+       AjoutVente.
+       
+       open input fVen
+       move potionAchatNom to fVen_nomPotion
+       move potionAchatPrix to fVen_Prix
+       move potionAchatQuantite to fVen_quantite
+       write tamp_fVen.
 
 
       *> Menu Livre Recette
