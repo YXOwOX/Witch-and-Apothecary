@@ -154,6 +154,7 @@
         77 ingQuantite PIC 9(4).
         77 ingPrix PIC 9(4).
         77 result PIC 9(5).
+        77 ventesFin PIC 9.
 
 
 
@@ -1060,7 +1061,7 @@
         move "Vitesse" to fPot_effet
         write tamp_fPot
 
-        *move "Veritaphilis" to fPot_nom
+        move "Veritaphilis" to fPot_nom
         move 0 to fPot_quantite
         move "Veriter" to fPot_effet
         write tamp_fPot
@@ -1185,8 +1186,8 @@
                         perform ConsulterStockPotion
                 when 5
                         perform ConsulterStockIngredients
-      *>          when 6
-      *>                  perform ConsulterRegistreVentes
+                when 6
+                        perform ConsulterRegistreVentes
         	when 7
         		Display "here"
                  	perform Stats
@@ -1467,6 +1468,7 @@
         perform with test after until registreOk = 1
                 display "1- Afficher toutes les ventes"
                 display "2- Rechercher les ventes d’un jour"
+                display "3- Supprimer les ventes"
                 display "0- Quitter"
                 accept registreChoix
                 if registreChoix >= 0 and registreChoix < 3 then
@@ -1480,6 +1482,8 @@
       *>                  perform AfficherVentes
       *>          when 2
       *>                  perform RechercherVentesJour
+               *>   when 3
+               *>           perform SupprimerVentes
                 when 0
                         display "Vous quittez."
                         if roleUser = 0 then
@@ -1488,6 +1492,30 @@
                                 perform Client
                         end-if
         end-evaluate.
+        AfficherVentes.
+
+       open input fVen
+       move 0 to ventesFin
+       PERFORM WITH TEST AFTER UNTIL ventesFin = 1
+
+              READ fVen NEXT
+              AT END
+                move 1 to ventesFin
+              NOT AT END
+                        display " "
+                        display "Date :", fVen_id
+                        display "---------------------------------------"
+                        display "Potion :", fVen_nomPotion
+                        display "Quantit� :", fVen_quantite
+                        display "Prix :", fVen_prix
+              END-READ
+       END-PERFORM
+       close fVen
+       if roleUser = 0 then
+              perform Alchimiste
+       else
+              perform Client
+       end-if.
 
 
       *> a deplacer
