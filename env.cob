@@ -178,7 +178,7 @@
         then
                 open output fCom
         end-if
-        close fCom
+         close fCom
 
         open i-o fIn
         move "Cloche de feu" to fIn_nomIn
@@ -301,13 +301,13 @@
         move 107 to fIn_prix
         write tamp_fIn
 
-        move "etagere de soufre" to fIn_nomIn
+        move "Étagère de soufre" to fIn_nomIn
         move 240 to fIn_quantite
         move "champignon" to fIn_type
         move 118 to fIn_prix
         write tamp_fIn
 
-        move "Champignon etrange" to fIn_nomIn
+        move "Champignon étrange" to fIn_nomIn
         move 450 to fIn_quantite
         move "champignon" to fIn_type
         move 91 to fIn_prix
@@ -325,7 +325,7 @@
         move 108 to fIn_prix
         write tamp_fIn
 
-        move "Amanite mouchetee " to fIn_nomIn
+        move "Amanite mouchetée " to fIn_nomIn
         move 12 to fIn_quantite
         move "champignon" to fIn_type
         move 254 to fIn_prix
@@ -349,7 +349,7 @@
         move 321 to fIn_prix
         write tamp_fIn
 
-        move "Saphir gele" to fIn_nomIn
+        move "Saphir gelé" to fIn_nomIn
         move 995 to fIn_quantite
         move "pierre" to fIn_type
         move 536 to fIn_prix
@@ -382,30 +382,555 @@
         move "2" to fRec_quantite
         move "1" to fRec_ordre
         write tamp_fRec
-        open i-o fRec
+
 
         move 2 to fRec_id
-        move "Vol d'hirondelle" to fRec_nom
-        move "Cristal-nuageux" to fRec_ingredient
+        move "Vol d hirondelle" to fRec_nom
+        move "Cristal nuageux" to fRec_ingredient
         move "1" to fRec_quantite
         move "2" to fRec_ordre
         write tamp_fRec
 
-        open i-o fRec
+
         move 3 to fRec_id
-        move "Vol d'hirondelle" to fRec_nom
-        move "fleur-des-vents" to fRec_ingredient
+        move "Vol d hirondelle" to fRec_nom
+        move "fleur des vents" to fRec_ingredient
         move "3" to fRec_quantite
         move "3" to fRec_ordre
         write tamp_fRec
 
-        open i-o fRec
         move 4 to fRec_id
-        move "Vol d'hirondelle" to fRec_nom
-        move "Lactere-duveteux" to fRec_ingredient
+        move "Vol d hirondelle" to fRec_nom
+        move "Lactere duveteux" to fRec_ingredient
         move "2" to fRec_quantite
         move "4" to fRec_ordre
         write tamp_fRec
+
+        move 5 to fRec_id
+        move "Vision de chat" to fRec_nom
+        move "Herbe nouee" to fRec_ingredient
+        move "2" to fRec_quantite
+        move "1" to fRec_ordre
+        write tamp_fRec
+
+        move 6 to fRec_id
+        move "Vision de chat" to fRec_nom
+        move "Pierre de lune" to fRec_ingredient
+        move "1" to fRec_quantite
+        move "2" to fRec_ordre
+        write tamp_fRec
+
+        move 7 to fRec_id
+        move "Vision de chat" to fRec_nom
+        move "Lactere duveteux" to fRec_ingredient
+        move "2" to fRec_quantite
+        move "3" to fRec_ordre
+        write tamp_fRec
+
+        move 8 to fRec_id
+        move "Tache de salamandre" to fRec_nom
+        move "Cloche de feu" to fRec_ingredient
+        move "4" to fRec_quantite
+        move "1" to fRec_ordre
+        write tamp_fRec
+
+        move 9 to fRec_id
+        move "Tache de salamandre" to fRec_nom
+        move "Champignon noir" to fRec_ingredient
+        move "2" to fRec_quantite
+        move "2" to fRec_ordre
+        write tamp_fRec
+
+        move 10 to fRec_id
+        move "Tache de salamandre" to fRec_nom
+        move "Citrine incendiaire" to fRec_ingredient
+        move "1" to fRec_quantite
+        move "3" to fRec_ordre
+        write tamp_fRec
+
+        move 11 to fRec_id
+        move "Poudre de perlinpinpin" to fRec_nom
+        move "Cloche dorée" to fRec_ingredient
+        move "1" to fRec_quantite
+        move "1" to fRec_ordre
+        write tamp_fRec
+
+        move 12 to fRec_id
+        move "Poudre de perlinpinpin" to fRec_nom
+        move "Selle de dryade" to fRec_ingredient
+        move "2" to fRec_quantite
+        move "2" to fRec_ordre
+        write tamp_fRec
+
+        move 13 to fRec_id
+        move "Poudre de perlinpinpin" to fRec_nom
+        move "Pyrite" to fRec_ingredient
+        move "2" to fRec_quantite
+        move "3" to fRec_ordre
+        write tamp_fRec
+
+        move 14 to fRec_id
+        move "Suraux mortel" to fRec_nom
+        move "Banane epineuse" to fRec_ingredient
+        move "5" to fRec_quantite
+        move "1" to fRec_ordre
+        write tamp_fRec
+
+        move 15 to fRec_id
+        move "Suraux mortel" to fRec_nom
+        move "Amanite mouchetee" to fRec_ingredient
+        move "4" to fRec_quantite
+        move "2" to fRec_ordre
+        write tamp_fRec
+
+        move 16 to fRec_id
+        move "Suraux mortel" to fRec_nom
+        move "Rubis sanglant" to fRec_ingredient
+        move "2" to fRec_quantite
+        move "3" to fRec_ordre
+        write tamp_fRec
+
+        move 17 to fRec_id
+        move "Tempete de Zeus" to fRec_nom
+        move "Chardon orageux" to fRec_ingredient
+        move "2" to fRec_quantite
+        move "1" to fRec_ordre
+        write tamp_fRec
+
+        move 18 to fRec_id
+        move "Tempete de Zeus" to fRec_nom
+        move "Chanterelle ombrageuse" to fRec_ingredient
+        move "3" to fRec_quantite
+        move "2" to fRec_ordre
+        write tamp_fRec
+
+        move 19 to fRec_id
+        move "Tempete de Zeus" to fRec_nom
+        move "Cristal nuageux" to fRec_ingredient
+        move "1" to fRec_quantite
+        move "3" to fRec_ordre
+        write tamp_fRec
+
+        move 20 to fRec_id
+        move "Caresse d Aphrodite" to fRec_nom
+        move "Herbe nouee" to fRec_ingredient
+        move "2" to fRec_quantite
+        move "1" to fRec_ordre
+        write tamp_fRec
+
+        move 21 to fRec_id
+        move "Caresse d'Aphrodite" to fRec_nom
+        move "Champignon etrange" to fRec_ingredient
+        move "1" to fRec_quantite
+        move "2" to fRec_ordre
+        write tamp_fRec
+
+        move 22 to fRec_id
+        move "Caresse d Aphrodite" to fRec_nom
+        move "Rubis sanglant" to fRec_ingredient
+        move "1" to fRec_quantite
+        move "3" to fRec_ordre
+        write tamp_fRec
+
+        move 23 to fRec_id
+        move "Crachat de goblin" to fRec_nom
+        move "Betterave grumeleuse" to fRec_ingredient
+        move "1" to fRec_quantite
+        move "1" to fRec_ordre
+        write tamp_fRec
+
+        move 24 to fRec_id
+        move "Crachat de goblin" to fRec_nom
+        move "Champi gobelin" to fRec_ingredient
+        move "1" to fRec_quantite
+        move "2" to fRec_ordre
+        write tamp_fRec
+
+        move 25 to fRec_id
+        move "Crachat de goblin" to fRec_nom
+        move "Pyrite" to fRec_ingredient
+        move "2" to fRec_quantite
+        move "3" to fRec_ordre
+        write tamp_fRec
+
+        move 26 to fRec_id
+        move "Rage d Odin" to fRec_nom
+        move "Belladone" to fRec_ingredient
+        move "2" to fRec_quantite
+        move "1" to fRec_ordre
+        write tamp_fRec
+
+        move 27 to fRec_id
+        move "Rage d Odin" to fRec_nom
+        move "Pythonissam boletus" to fRec_ingredient
+        move "1" to fRec_quantite
+        move "2" to fRec_ordre
+        write tamp_fRec
+
+        move 28 to fRec_id
+        move "Rage d Odin" to fRec_nom
+        move "Pierre de lune" to fRec_ingredient
+        move "3" to fRec_quantite
+        move "3" to fRec_ordre
+        write tamp_fRec
+
+        move 29 to fRec_id
+        move "Souffle de volcan" to fRec_nom
+        move "Racine de lave" to fRec_ingredient
+        move "3" to fRec_quantite
+        move "1" to fRec_ordre
+        write tamp_fRec
+
+        move 30 to fRec_id
+        move "Souffle de volcan" to fRec_nom
+        move "Etagere de soufre" to fRec_ingredient
+        move "1" to fRec_quantite
+        move "2" to fRec_ordre
+        write tamp_fRec
+
+        move 31 to fRec_id
+        move "Souffle de volcan" to fRec_nom
+        move "Citrine incendiaire" to fRec_ingredient
+        move "2" to fRec_quantite
+        move "3" to fRec_ordre
+        write tamp_fRec
+
+        move 32 to fRec_id
+        move "Reve hesoterique" to fRec_nom
+        move "Terraria" to fRec_ingredient
+        move "2" to fRec_quantite
+        move "1" to fRec_ordre
+        write tamp_fRec
+
+        move 33 to fRec_id
+        move "Reve hesoterique" to fRec_nom
+        move "Champignon etrange" to fRec_ingredient
+        move "2" to fRec_quantite
+        move "2" to fRec_ordre
+        write tamp_fRec
+
+        move 34 to fRec_id
+        move "Reve hesoterique" to fRec_nom
+        move "Parasite du marais" to fRec_ingredient
+        move "2" to fRec_quantite
+        move "3" to fRec_ordre
+        write tamp_fRec
+
+        move 35 to fRec_id
+        move "Source divine" to fRec_nom
+        move "Fleur des lacs" to fRec_ingredient
+        move "2" to fRec_quantite
+        move "1" to fRec_ordre
+        write tamp_fRec
+
+        move 36 to fRec_id
+        move "Source divine" to fRec_nom
+        move "Lactere duveteux" to fRec_ingredient
+        move "1" to fRec_quantite
+        move "2" to fRec_ordre
+        write tamp_fRec
+
+        move 37 to fRec_id
+        move "Source divine" to fRec_nom
+        move "Pierre de lune" to fRec_ingredient
+        move "1" to fRec_quantite
+        move "3" to fRec_ordre
+        write tamp_fRec
+
+        move 38 to fRec_id
+        move "Disimilation du doppelganger" to fRec_nom
+        move "Fleur des lacs" to fRec_ingredient
+        move "1" to fRec_quantite
+        move "1" to fRec_ordre
+        write tamp_fRec
+
+        move 39 to fRec_id
+        move "Disimilation du doppelganger" to fRec_nom
+        move "Selle de dryade" to fRec_ingredient
+        move "1" to fRec_quantite
+        move "2" to fRec_ordre
+        write tamp_fRec
+
+        move 40 to fRec_id
+        move "Disimilation du doppelganger" to fRec_nom
+        move "Cristal nuageux" to fRec_ingredient
+        move "2" to fRec_quantite
+        move "3" to fRec_ordre
+        write tamp_fRec
+
+        move 41 to fRec_id
+        move "Etoile du matin" to fRec_nom
+        move "Cloche dorée" to fRec_ingredient
+        move "2" to fRec_quantite
+        move "1" to fRec_ordre
+        write tamp_fRec
+
+        move 42 to fRec_id
+        move "Etoile du matin" to fRec_nom
+        move "champignon vert" to fRec_ingredient
+        move "1" to fRec_quantite
+        move "2" to fRec_ordre
+        write tamp_fRec
+
+        move 43 to fRec_id
+        move "Etoile du matin" to fRec_nom
+        move "Pierre de lune" to fRec_ingredient
+        move "1" to fRec_quantite
+        move "3" to fRec_ordre
+        write tamp_fRec
+
+        move 44 to fRec_id
+        move "Voile misterieux" to fRec_nom
+        move "Betterave grumeleuse" to fRec_ingredient
+        move "1" to fRec_quantite
+        move "1" to fRec_ordre
+        write tamp_fRec
+
+        move 45 to fRec_id
+        move "Voile misterieux" to fRec_nom
+        move "Chanterelle ombrageuse" to fRec_ingredient
+        move "1" to fRec_quantite
+        move "2" to fRec_ordre
+        write tamp_fRec
+
+        move 46 to fRec_id
+        move "Voile misterieux" to fRec_nom
+        move "Cristal nuageux" to fRec_ingredient
+        move "1" to fRec_quantite
+        move "3" to fRec_ordre
+        write tamp_fRec
+
+        move 47 to fRec_id
+        move "Benediction de fee" to fRec_nom
+        move "Fleur des lacs" to fRec_ingredient
+        move "2" to fRec_quantite
+        move "1" to fRec_ordre
+        write tamp_fRec
+
+        move 48 to fRec_id
+        move "Benediction de fee" to fRec_nom
+        move "Pythonissam boletus" to fRec_ingredient
+        move "2" to fRec_quantite
+        move "2" to fRec_ordre
+        write tamp_fRec
+
+        move 49 to fRec_id
+        move "Benediction de fee" to fRec_nom
+        move "Saphire gele" to fRec_ingredient
+        move "1" to fRec_quantite
+        move "3" to fRec_ordre
+        write tamp_fRec
+
+        move 50 to fRec_id
+        move "Soulevement des tombes" to fRec_nom
+        move "Epine de sang" to fRec_ingredient
+        move "1" to fRec_quantite
+        move "1" to fRec_ordre
+        write tamp_fRec
+
+        move 51 to fRec_id
+        move "Soulevement des tombes" to fRec_nom
+        move "Truffe des tombes" to fRec_ingredient
+        move "4" to fRec_quantite
+        move "2" to fRec_ordre
+        write tamp_fRec
+
+        move 52 to fRec_id
+        move "Soulevement des tombes" to fRec_nom
+        move "Rubis sanglant" to fRec_ingredient
+        move "1" to fRec_quantite
+        move "3" to fRec_ordre
+        write tamp_fRec
+
+        move 53 to fRec_id
+        move "Euphytose nuit" to fRec_nom
+        move "Herbe nouee" to fRec_ingredient
+        move "3" to fRec_quantite
+        move "1" to fRec_ordre
+        write tamp_fRec
+
+        move 54 to fRec_id
+        move "Euphytose nuit" to fRec_nom
+        move "Champignon Etrange" to fRec_ingredient
+        move "1" to fRec_quantite
+        move "2" to fRec_ordre
+        write tamp_fRec
+
+        move 55 to fRec_id
+        move "Euphytose nuit" to fRec_nom
+        move "Pierre de lune" to fRec_ingredient
+        move "2" to fRec_quantite
+        move "3" to fRec_ordre
+        write tamp_fRec
+        
+        move 56 to fRec_id
+        move "Pointe de quenouille" to fRec_nom
+        move "Herbe nouee" to fRec_ingredient
+        move "3" to fRec_quantite
+        move "1" to fRec_ordre
+        write tamp_fRec
+
+        move 57 to fRec_id
+        move "Pointe de quenouille" to fRec_nom
+        move "Champignon Etrange" to fRec_ingredient
+        move "1" to fRec_quantite
+        move "2" to fRec_ordre
+        write tamp_fRec
+
+        move 58 to fRec_id
+        move "Pointe de quenouille" to fRec_nom
+        move "Saphir gele" to fRec_ingredient
+        move "2" to fRec_quantite
+        move "3" to fRec_ordre
+        write tamp_fRec
+        
+        move 59 to fRec_id
+        move "Aide du destin" to fRec_nom
+        move "Belladonne" to fRec_ingredient
+        move "1" to fRec_quantite
+        move "1" to fRec_ordre
+        write tamp_fRec
+
+        move 60 to fRec_id
+        move "Aide du destin" to fRec_nom
+        move "Champi gobelin" to fRec_ingredient
+        move "2" to fRec_quantite
+        move "2" to fRec_ordre
+        write tamp_fRec
+
+        move 61 to fRec_id
+        move "Aide du destin" to fRec_nom
+        move "Rubis sanglant" to fRec_ingredient
+        move "3" to fRec_quantite
+        move "3" to fRec_ordre
+        write tamp_fRec
+        
+        move 62 to fRec_id
+        move "Brume gelante" to fRec_nom
+        move "Fleur gelee" to fRec_ingredient
+        move "2" to fRec_quantite
+        move "1" to fRec_ordre
+        write tamp_fRec
+
+        move 63 to fRec_id
+        move "Brume gelante" to fRec_nom
+        move "Champignon noir" to fRec_ingredient
+        move "3" to fRec_quantite
+        move "2" to fRec_ordre
+        write tamp_fRec
+
+        move 64 to fRec_id
+        move "Brume gelante" to fRec_nom
+        move "Saphir gele" to fRec_ingredient
+        move "1" to fRec_quantite
+        move "3" to fRec_ordre
+        write tamp_fRec
+        
+        move 65 to fRec_id
+        move "Action furtive" to fRec_nom
+        move "Fleur des vents" to fRec_ingredient
+        move "2" to fRec_quantite
+        move "1" to fRec_ordre
+        write tamp_fRec
+
+        move 66 to fRec_id
+        move "Action furtive" to fRec_nom
+        move "Parasite du marais" to fRec_ingredient
+        move "1" to fRec_quantite
+        move "2" to fRec_ordre
+        write tamp_fRec
+
+        move 67 to fRec_id
+        move "Action furtive" to fRec_nom
+        move "Cristal nuageux" to fRec_ingredient
+        move "1" to fRec_quantite
+        move "3" to fRec_ordre
+        write tamp_fRec
+        
+        move 68 to fRec_id
+        move "Poudre d escampette" to fRec_nom
+        move "Feur des lacs" to fRec_ingredient
+        move "1" to fRec_quantite
+        move "1" to fRec_ordre
+        write tamp_fRec
+
+        move 69 to fRec_id
+        move "Poudre d escampette" to fRec_nom
+        move "Lactere duveteux" to fRec_ingredient
+        move "1" to fRec_quantite
+        move "2" to fRec_ordre
+        write tamp_fRec
+
+        move 70 to fRec_id
+        move "Poudre d escampette" to fRec_nom
+        move "Cristal nueageux" to fRec_ingredient
+        move "1" to fRec_quantite
+        move "3" to fRec_ordre
+        write tamp_fRec
+        
+        move 71 to fRec_id
+        move "Veritaphilis" to fRec_nom
+        move "Terraria" to fRec_ingredient
+        move "1" to fRec_quantite
+        move "1" to fRec_ordre
+        write tamp_fRec
+
+        move 72 to fRec_id
+        move "Veritaphilis" to fRec_nom
+        move "Truffe des tombes" to fRec_ingredient
+        move "2" to fRec_quantite
+        move "2" to fRec_ordre
+        write tamp_fRec
+
+        move 73 to fRec_id
+        move "Veritaphilis" to fRec_nom
+        move "Cristal nuageux" to fRec_ingredient
+        move "1" to fRec_quantite
+        move "3" to fRec_ordre
+        write tamp_fRec
+        
+        move 74 to fRec_id
+        move "Scaphandre de triton" to fRec_nom
+        move "Fleur des lacs" to fRec_ingredient
+        move "1" to fRec_quantite
+        move "1" to fRec_ordre
+        write tamp_fRec
+
+        move 75 to fRec_id
+        move "Scaphandre de triton" to fRec_nom
+        move "Selle de dryade" to fRec_ingredient
+        move "2" to fRec_quantite
+        move "2" to fRec_ordre
+        write tamp_fRec
+
+        move 76 to fRec_id
+        move "Scaphandre de triton" to fRec_nom
+        move "Saphir gele" to fRec_ingredient
+        move "1" to fRec_quantite
+        move "3" to fRec_ordre
+        write tamp_fRec
+        
+        move 77 to fRec_id
+        move "Rythe des statues" to fRec_nom
+        move "Epine de sang" to fRec_ingredient
+        move "1" to fRec_quantite
+        move "1" to fRec_ordre
+        write tamp_fRec
+
+        move 78 to fRec_id
+        move "Rythe des statues" to fRec_nom
+        move "Amanite mouchetee" to fRec_ingredient
+        move "1" to fRec_quantite
+        move "2" to fRec_ordre
+        write tamp_fRec
+
+        move 79 to fRec_id
+        move "Rythe des statues" to fRec_nom
+        move "Saphir gele" to fRec_ingredient
+        move "5" to fRec_quantite
+        move "3" to fRec_ordre
+        write tamp_fRec
+        
         if cr_fRec = 35
         then
                 open output fRec
@@ -413,7 +938,7 @@
         close fRec
 
         open i-o fPot
-        move "Vol d'hirondelle" to fPot_nom
+        move "Vol d hirondelle" to fPot_nom
         move 0 to fPot_quantite
         move "Levitation" to fPot_effet
         write tamp_fPot
@@ -421,7 +946,7 @@
         move "Vision de chat" to fPot_nom
         move 0 to fPot_quantite
         move "Nyctalopie" to fPot_effet
-        write tamp_fPot
+        write tamp_fPot*
 
         move "Tache de salamandre" to fPot_nom
         move 0 to fPot_quantite
@@ -443,7 +968,7 @@
         move "Foudre" to fPot_effet
         write tamp_fPot
 
-        move "Caresse d'Aphrodite" to fPot_nom
+        move "Caresse d Aphrodite" to fPot_nom
         move 0 to fPot_quantite
         move "Charme" to fPot_effet
         write tamp_fPot
@@ -453,7 +978,7 @@
         move "Acide" to fPot_effet
         write tamp_fPot
 
-        move "Rage d'Odin" to fPot_nom
+        move "Rage d Odin" to fPot_nom
         move 0 to fPot_quantite
         move "Bersserker" to fPot_effet
         write tamp_fPot
@@ -475,7 +1000,7 @@
 
         move "Disimulation du doppelganger" to fPot_nom
         move 0 to fPot_quantite
-        move "Changement d'apparence" to fPot_effet
+        move "Changement d apparence" to fPot_effet
         write tamp_fPot
 
         move "Etoile du matin" to fPot_nom
@@ -513,29 +1038,29 @@
         move "Resistance" to fPot_effet
         write tamp_fPot
 
-        move "Brume tenebreuse" to fPot_nom
+        move "Brume gelante" to fPot_nom
         move 0 to fPot_quantite
-        move "Blizzard" to fPot_effet
+        move "Gele" to fPot_effet
         write tamp_fPot
 
         move "Action furtive" to fPot_nom
         move 0 to fPot_quantite
-        move "Invisibilite" to fPot_effet
+        move "Invisibilité" to fPot_effet
         write tamp_fPot
 
-        move "Poudre d'escampette" to fPot_nom
+        move "Poudre d escampette" to fPot_nom
         move 0 to fPot_quantite
         move "Vitesse" to fPot_effet
         write tamp_fPot
 
-        move "Veritaphilis" to fPot_nom
+        *move "Veritaphilis" to fPot_nom
         move 0 to fPot_quantite
         move "Veriter" to fPot_effet
         write tamp_fPot
 
         move "Scaphandre de triton" to fPot_nom
         move 0 to fPot_quantite
-        move "Respiration sous l'eau" to fPot_effet
+        move "Respiration sous l eau" to fPot_effet
         write tamp_fPot
 
         move "Rythe des statues" to fPot_nom
@@ -548,30 +1073,6 @@
                 open output fPot
         end-if
         close fPot
-
-
-        open i-o fVen
-        if cr_fVen = 35
-        then
-                open output fVen
-        end-if
-        close fVen
-
-        open i-o fCom
-        move "a" to fCom_id
-        move "a" to fCom_motDePasse
-        move 0 to fCom_role
-        write tamp_fCom
-        move "c" to fCom_id
-        move "c" to fCom_motDePasse
-        move 1 to fCom_role
-        write tamp_fCom
-
-        if cr_fCom = 35
-        then
-                open output fCom
-        end-if
-        close fCom
 
 
         display "Witch and Apothecary"
