@@ -156,7 +156,7 @@
         77 ingPrix PIC 9(4).
         77 result PIC 9(5).
         77 ventesFin PIC 9.
-        77 ventesJFin PIC 9.
+77 ventesJFin PIC 9.
         77 datedo PIC A(22).
 
 
@@ -184,13 +184,13 @@
         end-if
         close fPot
 
-        open i-o fVen
+          open i-o fVen
         if cr_fVen = 35
         then
                 open output fVen
         end-if
         close fVen
-
+        
         open i-o fCom
         if cr_fCom = 35
         then
@@ -959,133 +959,159 @@
         move "Vol d hirondelle" to fPot_nom
         move 0 to fPot_quantite
         move "Levitation" to fPot_effet
+        move 682 to fPot_prix
         write tamp_fPot
 
         move "Vision de chat" to fPot_nom
-        move 2 to fPot_quantite
+        move 0 to fPot_quantite
         move "Nyctalopie" to fPot_effet
+        move 2175 to fPot_prix
         write tamp_fPot
 
         move "Tache de salamandre" to fPot_nom
-        move 1 to fPot_quantite
+        move 0 to fPot_quantite
         move "Potion de feu" to fPot_effet
+        move 1980 to fPot_prix
         write tamp_fPot
 
         move "Poudre de perlinpinpin" to fPot_nom
         move 0 to fPot_quantite
         move "Prestance" to fPot_effet
+        move 1028 to fPot_prix
         write tamp_fPot
 
         move "Suraux mortel" to fPot_nom
         move 0 to fPot_quantite
         move "Poison" to fPot_effet
+        move 568 to fPot_prix
         write tamp_fPot
 
         move "Tempete de Zeus" to fPot_nom
-        move 5 to fPot_quantite
+        move 0 to fPot_quantite
         move "Foudre" to fPot_effet
+        move 921 to fPot_prix
         write tamp_fPot
 
         move "Caresse d Aphrodite" to fPot_nom
         move 0 to fPot_quantite
         move "Charme" to fPot_effet
+        move 959 to fPot_prix
         write tamp_fPot
 
         move "Crachat de goblin" to fPot_nom
         move 0 to fPot_quantite
         move "Acide" to fPot_effet
+        move 885 to fPot_prix
         write tamp_fPot
 
         move "Rage d Odin" to fPot_nom
-        move 11 to fPot_quantite
+        move 0 to fPot_quantite
         move "Bersserker" to fPot_effet
+        move 930 to fPot_prix
         write tamp_fPot
 
         move "Soufle de volcan" to fPot_nom
         move 0 to fPot_quantite
         move "Explosion" to fPot_effet
+        move 799 to fPot_prix
         write tamp_fPot
 
         move "Reve hesoterique" to fPot_nom
         move 0 to fPot_quantite
         move "Halucination (LSD)" to fPot_effet
+        move 834 to fPot_prix
         write tamp_fPot
 
         move "Source Divine" to fPot_nom
         move 0 to fPot_quantite
         move "Soin" to fPot_effet
+        move 501 to fPot_prix
         write tamp_fPot
 
         move "Disimulation du doppelganger" to fPot_nom
         move 0 to fPot_quantite
         move "Changement d apparence" to fPot_effet
+        move 762 to fPot_prix
         write tamp_fPot
 
         move "Etoile du matin" to fPot_nom
         move 0 to fPot_quantite
         move "Lumiere" to fPot_effet
+        move 590 to fPot_prix
         write tamp_fPot
 
         move "Voile misterieux" to fPot_nom
         move 0 to fPot_quantite
         move "Viosion etherer" to fPot_effet
+        move 1396 to fPot_prix
         write tamp_fPot
 
         move "Benediction des fee" to fPot_nom
         move 0 to fPot_quantite
         move "Potion de mana" to fPot_effet
+        move 511 to fPot_prix
         write tamp_fPot
 
         move "Soulevement " to fPot_nom
         move 0 to fPot_quantite
         move "Necromancy" to fPot_effet
+        move 859 to fPot_prix
         write tamp_fPot
 
         move "Euphytose nuit" to fPot_nom
         move 0 to fPot_quantite
         move "Sommeil" to fPot_effet
+        move 729 to fPot_prix
         write tamp_fPot
 
         move "Pointe de quenouille" to fPot_nom
         move 0 to fPot_quantite
         move "Sommeil" to fPot_effet
+        move 536 to fPot_prix
         write tamp_fPot
 
         move "Aide du destin" to fPot_nom
         move 0 to fPot_quantite
         move "Resistance" to fPot_effet
+        move 732 to fPot_prix
         write tamp_fPot
 
         move "Brume gelante" to fPot_nom
         move 0 to fPot_quantite
         move "Gele" to fPot_effet
+        move 1073 to fPot_prix
         write tamp_fPot
 
         move "Action furtive" to fPot_nom
         move 0 to fPot_quantite
         move "Invisibilite" to fPot_effet
+        move 604 to fPot_prix
         write tamp_fPot
 
         move "Poudre d escampette" to fPot_nom
         move 0 to fPot_quantite
         move "Vitesse" to fPot_effet
+        move 788 to fPot_prix
         write tamp_fPot
 
         move "Veritaphilis" to fPot_nom
         move 0 to fPot_quantite
         move "Veriter" to fPot_effet
+        move 1245 to fPot_prix
         write tamp_fPot
 
         move "Scaphandre de triton" to fPot_nom
         move 0 to fPot_quantite
         move "Respiration sous l eau" to fPot_effet
+        move 1226 to fPot_prix
         write tamp_fPot
 
         move "Rythe des statues" to fPot_nom
         move 0 to fPot_quantite
         move "Immobilisation" to fPot_effet
+        move 1273 to fPot_prix
         write tamp_fPot
-        display cr_fPot
+
         if cr_fPot = 35
         then
                 open output fPot
@@ -1154,8 +1180,8 @@
                         IF cr_fCom = 00 THEN
                             DISPLAY "COMPTE CREE"
                         END-IF
-                        close fCom
-
+                       close fCom
+               
                 when 0
                         display "Vous quittez."
         end-evaluate
@@ -1407,20 +1433,14 @@
         move fIn_type to typeIng
         open input fIn
         move 0 to ingredientFin
-        display fIn_type
         start fIn, key is = fIn_type
         invalid key display "Pas d'ingredient de ce type existant"
         not invalid key
                 display "---------------------------------------"
                 perform with test after until ingredientFin = 1
                         read fIn next
-                        AT END
-                        display fIn_type
-
-                         move 1 to ingredientFin
-                        NOT AT END
-                        display fIn_type
-                        display typeIng
+                        at end move 1 to ingredientFin
+                        not at end
                                 if fIn_type = typeIng
                                 then
 
@@ -1506,8 +1526,8 @@
                                 perform Client
                         end-if
         end-evaluate.
-
-        AfficherVentes.
+         
+         AfficherVentes.
 
         open input fVen
         move 0 to ventesFin
@@ -1784,7 +1804,7 @@
 
        AjoutVente.
 
-       open extend fVen
+   open extend fVen
        move Function CURRENT-DATE to fVen_date
        move potionAchatNom to fVen_nomPotion
        move potionAchatPrix to fVen_Prix
