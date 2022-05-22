@@ -160,7 +160,7 @@
 
         PROCEDURE DIVISION.
 
-    	open i-o fIn
+        open i-o fIn
         if cr_fIn = 35
         then
                 open output fIn
@@ -309,13 +309,13 @@
         move 107 to fIn_prix
         write tamp_fIn
 
-        move "Étagère de soufre" to fIn_nomIn
+        move "etagere de soufre" to fIn_nomIn
         move 240 to fIn_quantite
         move "champignon" to fIn_type
         move 118 to fIn_prix
         write tamp_fIn
 
-        move "Champignon étrange" to fIn_nomIn
+        move "Champignon etrange" to fIn_nomIn
         move 450 to fIn_quantite
         move "champignon" to fIn_type
         move 91 to fIn_prix
@@ -333,7 +333,7 @@
         move 108 to fIn_prix
         write tamp_fIn
 
-        move "Amanite mouchetée " to fIn_nomIn
+        move "Amanite mouchetee " to fIn_nomIn
         move 12 to fIn_quantite
         move "champignon" to fIn_type
         move 254 to fIn_prix
@@ -357,7 +357,7 @@
         move 321 to fIn_prix
         write tamp_fIn
 
-        move "Saphir gelé" to fIn_nomIn
+        move "Saphir gele" to fIn_nomIn
         move 995 to fIn_quantite
         move "pierre" to fIn_type
         move 536 to fIn_prix
@@ -458,7 +458,7 @@
 
         move 11 to fRec_id
         move "Poudre de perlinpinpin" to fRec_nom
-        move "Cloche dorée" to fRec_ingredient
+        move "Cloche doree" to fRec_ingredient
         move "1" to fRec_quantite
         move "1" to fRec_ordre
         write tamp_fRec
@@ -668,7 +668,7 @@
 
         move 41 to fRec_id
         move "Etoile du matin" to fRec_nom
-        move "Cloche dorée" to fRec_ingredient
+        move "Cloche doree" to fRec_ingredient
         move "2" to fRec_quantite
         move "1" to fRec_ordre
         write tamp_fRec
@@ -770,7 +770,7 @@
         move "2" to fRec_quantite
         move "3" to fRec_ordre
         write tamp_fRec
-        
+
         move 56 to fRec_id
         move "Pointe de quenouille" to fRec_nom
         move "Herbe nouee" to fRec_ingredient
@@ -791,7 +791,7 @@
         move "2" to fRec_quantite
         move "3" to fRec_ordre
         write tamp_fRec
-        
+
         move 59 to fRec_id
         move "Aide du destin" to fRec_nom
         move "Belladonne" to fRec_ingredient
@@ -812,7 +812,7 @@
         move "3" to fRec_quantite
         move "3" to fRec_ordre
         write tamp_fRec
-        
+
         move 62 to fRec_id
         move "Brume gelante" to fRec_nom
         move "Fleur gelee" to fRec_ingredient
@@ -833,7 +833,7 @@
         move "1" to fRec_quantite
         move "3" to fRec_ordre
         write tamp_fRec
-        
+
         move 65 to fRec_id
         move "Action furtive" to fRec_nom
         move "Fleur des vents" to fRec_ingredient
@@ -854,7 +854,7 @@
         move "1" to fRec_quantite
         move "3" to fRec_ordre
         write tamp_fRec
-        
+
         move 68 to fRec_id
         move "Poudre d escampette" to fRec_nom
         move "Feur des lacs" to fRec_ingredient
@@ -875,7 +875,7 @@
         move "1" to fRec_quantite
         move "3" to fRec_ordre
         write tamp_fRec
-        
+
         move 71 to fRec_id
         move "Veritaphilis" to fRec_nom
         move "Terraria" to fRec_ingredient
@@ -896,7 +896,7 @@
         move "1" to fRec_quantite
         move "3" to fRec_ordre
         write tamp_fRec
-        
+
         move 74 to fRec_id
         move "Scaphandre de triton" to fRec_nom
         move "Fleur des lacs" to fRec_ingredient
@@ -917,7 +917,7 @@
         move "1" to fRec_quantite
         move "3" to fRec_ordre
         write tamp_fRec
-        
+
         move 77 to fRec_id
         move "Rythe des statues" to fRec_nom
         move "Epine de sang" to fRec_ingredient
@@ -938,7 +938,7 @@
         move "5" to fRec_quantite
         move "3" to fRec_ordre
         write tamp_fRec
-        
+
         if cr_fRec = 35
         then
                 open output fRec
@@ -954,7 +954,7 @@
         move "Vision de chat" to fPot_nom
         move 0 to fPot_quantite
         move "Nyctalopie" to fPot_effet
-        write tamp_fPot*
+        write tamp_fPot
 
         move "Tache de salamandre" to fPot_nom
         move 0 to fPot_quantite
@@ -1053,7 +1053,7 @@
 
         move "Action furtive" to fPot_nom
         move 0 to fPot_quantite
-        move "Invisibilité" to fPot_effet
+        move "Invisibilite" to fPot_effet
         write tamp_fPot
 
         move "Poudre d escampette" to fPot_nom
@@ -1086,7 +1086,7 @@
         display "Witch and Apothecary"
         display "Menu de connexion"
         display "1 - Connexion"
-        display "2 - Créer un compte"
+        display "2 - Creer un compte"
         display "0 - Quitter"
         accept connexionChoix
         if connexionChoix < 0 and connexionChoix > 2 then
@@ -1095,31 +1095,31 @@
         evaluate connexionChoix
                 when 1
                         open input fCom
-		        perform with test after until connexionOk = 1
-		                display "Identifiant : "
-		                accept fCom_id
-		                display "Mot de Passe : "
-		                accept connexionMotDePasse
-		                read fCom
-		                invalid key
-		                        display "L'identifiant n'existe pas"
-		                not invalid key
-		                        if connexionMotDePasse = fCom_motDePasse
-		                        then
-		                                move 1 to connexionOk
-		                                if fCom_role = 0 then
-		                                        move 0 to roleUser
-		                                        perform Alchimiste
-		                                else
-		                                        move 1 to roleUser
-		                                        perform Client
-		                                end-if
-		                        end-if
-		                end-read
-		         end-perform
-		         close fCom
+                perform with test after until connexionOk = 1
+                        display "Identifiant : "
+                        accept fCom_id
+                        display "Mot de Passe : "
+                        accept connexionMotDePasse
+                        read fCom
+                        invalid key
+                                display "L'identifiant n'existe pas"
+                        not invalid key
+                                if connexionMotDePasse = fCom_motDePasse
+                                then
+                                        move 1 to connexionOk
+                                        if fCom_role = 0 then
+                                                move 0 to roleUser
+                                                perform Alchimiste
+                                        else
+                                                move 1 to roleUser
+                                                perform Client
+                                        end-if
+                                end-if
+                        end-read
+                 end-perform
+                 close fCom
                 when 2
-                	OPEN i-o fCom
+                    OPEN i-o fCom
                         DISPLAY "===============NOUVEAU COMPTE======",
                         "============"
                         DISPLAY "Identifiant :"
@@ -1130,26 +1130,26 @@
                         DISPLAY "----------------------------"
                         DISPLAY "Role : 0- ALCHIMISTE | 1- CLIENT"
                         ACCEPT fCom_role
-                        
-                        if fCom_role < 0 
-                        and fCom_role > 2 
+
+                        if fCom_role < 0
+                        and fCom_role > 2
                         then
-                        	display "Saisie incorrecte"
-               		end-if
+                            display "Saisie incorrecte"
+                       end-if
 
                         DISPLAY "===================================",
                         "=============="
-                                   
+
                         WRITE tamp_fCom END-WRITE
-                        IF cr_fCom = 00 THEN 
-                        	DISPLAY "COMPTE CREE"
+                        IF cr_fCom = 00 THEN
+                            DISPLAY "COMPTE CREE"
                         END-IF
-                        
+
                 when 0
                         display "Vous quittez."
         end-evaluate
-        
-  
+
+
 
         STOP RUN.
 
@@ -1160,11 +1160,11 @@
         perform with test after until alchimisteOk = 1
                 DISPLAY " "
                 display "=======MENU ALCHIMISTE======="
-                display "1- Créer une potion"
-                display "2- Acheter des ingrédients"
+                display "1- Creer une potion"
+                display "2- Acheter des ingredients"
                 display "3- Livre des recettes"
                 display "4- Consulter le stock de potions"
-                display "5- Consulter le stock d’ingrédients"
+                display "5- Consulter le stock d’ingredients"
                 display "6- Consulter le registre des ventes"
                 display "7- Statistiques"
                 display "0- Quitter"
@@ -1188,9 +1188,9 @@
                         perform ConsulterStockIngredients
                 when 6
                         perform ConsulterRegistreVentes
-        	when 7
-        		Display "here"
-                 	perform Stats
+            when 7
+                Display "here"
+                     perform Stats
                 when 0
                         display "Vous quittez."
         end-evaluate.
@@ -1269,7 +1269,7 @@
                 display "3- rechercher un ingredient selon son nom"
                 display "0- Quitter"
                 accept stockIngredientsChoix
-                if stockIngredientsChoix >= 0 and 
+                if stockIngredientsChoix >= 0 and
                    stockIngredientsChoix < 4  then
                         move 1 to stockIngredientsOk
                 else
@@ -1286,7 +1286,7 @@
                 when 0
                         display "Vous quittez."
                         if roleUser = 0 then
-                           
+
                                 perform Alchimiste
                         else
                                 perform Client
@@ -1299,15 +1299,15 @@
        MOVE 0 TO StatsPotFin
        MOVE 0 TO totalMoney
        PERFORM WITH TEST AFTER UNTIL StatsPotFin = 1
-       	READ fVen
-       	AT END MOVE 1 TO StatsPotFin
-       	NOT AT END 
-       	   ADD fVen_Prix TO totalMoney
-       	   END-READ
+           READ fVen
+           AT END MOVE 1 TO StatsPotFin
+           NOT AT END
+              ADD fVen_Prix TO totalMoney
+              END-READ
        END-PERFORM
        CLOSE fVen
-       
-        display "Entrez un nom de l’ingrédient à acheter : "
+
+        display "Entrez un nom de l ingredient a acheter : "
         accept fIn_nomIn
         move fIn_nomIn to nomIng
         open input fIn
@@ -1327,12 +1327,12 @@
                 end-perform
         end-start
         close fIn
-       
+
        display "Entrez le nombre voulu :"
        accept fIn_quantite
        multiply fIn_quantite by ingPrix giving result
        move fIn_quantite to ingQuantite
-       if result > totalMoney then 
+       if result > totalMoney then
            move nomIng to fIn_nomIn
            open input fIn
            move 0 to ingredientFin
@@ -1347,15 +1347,15 @@
                                    then
                                       subtract ingQuantite
                                             from fIn_quantite
-                                      rewrite tamp_fIn end-rewrite 
+                                      rewrite tamp_fIn end-rewrite
                                    end-if
                            end-read
                    end-perform
            end-start
            close fIn
-        else   
+        else
            display "Pas assez d'argent pour acheter les ingredients"
-        end-if 
+        end-if
         if roleUser = 0 then
               perform Alchimiste
         else
@@ -1375,8 +1375,8 @@
               NOT AT END
                         display " "
                         display "Nom :", fIn_nomIn
-                        display "---------------------------------------"
-                        display "Quantité :", fIn_quantite
+                        display "--------------------------------------"
+                        display "Quantite :", fIn_quantite
                         display "Type :", fIn_type
                         display "Prix :", fIn_prix
               END-READ
@@ -1388,7 +1388,7 @@
               perform Client
        end-if.
 
-       
+
        RechercherIngredientsType.
 
         display "Entrez un type"
@@ -1409,8 +1409,8 @@
 
                         display " "
                         display "Nom :", fIn_nomIn
-                        display "---------------------------------------"
-                        display "Quantité :", fIn_quantite
+                        display "--------------------------------------"
+                        display "Quantite :", fIn_quantite
                         display "Type :", fIn_type
                         display "Prix :", fIn_prix
 
@@ -1445,8 +1445,8 @@
 
                         display " "
                         display "Nom :", fIn_nomIn
-                        display "---------------------------------------"
-                        display "Quantité :", fIn_quantite
+                        display "--------------------------------------"
+                        display "Quantite :", fIn_quantite
                         display "Type :", fIn_type
                         display "Prix :", fIn_prix
 
@@ -1482,8 +1482,8 @@
       *>                  perform AfficherVentes
       *>          when 2
       *>                  perform RechercherVentesJour
-               *>   when 3
-               *>           perform SupprimerVentes
+                  *> when 3
+                          *> perform SupprimerVentes
                 when 0
                         display "Vous quittez."
                         if roleUser = 0 then
@@ -1492,30 +1492,30 @@
                                 perform Client
                         end-if
         end-evaluate.
-        AfficherVentes.
+        *> AfficherVentes.
 
-       open input fVen
-       move 0 to ventesFin
-       PERFORM WITH TEST AFTER UNTIL ventesFin = 1
+       *> open input fVen
+       *> move 0 to ventesFin
+       *> PERFORM WITH TEST AFTER UNTIL ventesFin = 1
 
-              READ fVen NEXT
-              AT END
-                move 1 to ventesFin
-              NOT AT END
-                        display " "
-                        display "Date :", fVen_id
-                        display "---------------------------------------"
-                        display "Potion :", fVen_nomPotion
-                        display "Quantit� :", fVen_quantite
-                        display "Prix :", fVen_prix
-              END-READ
-       END-PERFORM
-       close fVen
-       if roleUser = 0 then
-              perform Alchimiste
-       else
-              perform Client
-       end-if.
+              *> READ fVen NEXT
+              *> AT END
+                *> move 1 to ventesFin
+              *> NOT AT END
+                        *> display " "
+                        *> display "Date :", fVen_id
+                        *> display "--------------------------------------"
+                        *> display "Potion :", fVen_nomPotion
+                        *> display "Quantit� :", fVen_quantite
+                        *> display "Prix :", fVen_prix
+              *> END-READ
+       *> END-PERFORM
+       *> close fVen
+       *> if roleUser = 0 then
+              *> perform Alchimiste
+       *> else
+              *> perform Client
+       *> end-if.
 
 
       *> a deplacer
@@ -1531,8 +1531,8 @@
               NOT AT END
                         display " "
                         display "Nom :", fPot_nom
-                        display "---------------------------------------"
-                        display "Quantité :", fPot_quantite
+                        display "--------------------------------------"
+                        display "Quantite :", fPot_quantite
                         display "Effet :", fPot_effet
                         display "Prix :", fPot_prix
               END-READ
@@ -1558,8 +1558,8 @@
 
                         display " "
                         display "Nom :", fPot_nom
-                        display "---------------------------------------"
-                        display "Quantité :", fPot_quantite
+                        display "--------------------------------------"
+                        display "Quantite :", fPot_quantite
                         display "Effet :", fPot_effet
                         display "Prix :", fPot_prix
 
@@ -1582,8 +1582,8 @@
 
                         display " "
                         display "Nom :", fPot_nom
-                        display "---------------------------------------"
-                        display "Quantité :", fPot_quantite
+                        display "--------------------------------------"
+                        display "Quantite :", fPot_quantite
                         display "Effet :", fPot_effet
                         display "Prix :", fPot_prix
 
@@ -1617,8 +1617,8 @@
 
                         display " "
                         display "Nom :", fPot_nom
-                        display "---------------------------------------"
-                        display "Quantité :", fPot_quantite
+                        display "--------------------------------------"
+                        display "Quantite :", fPot_quantite
                         display "Effet :", fPot_effet
                         display "Prix :", fPot_prix
 
@@ -1649,10 +1649,10 @@
                         not at end
                                 if fPot_nom = nomPot
                                 then
-                                       display "Nom :", fPot_nom
-                                       display "Quantité :",fPot_quantite
-                                       display "Effet :", fPot_effet
-                                       display "Prix :", fPot_prix
+                                     display "Nom :", fPot_nom
+                                     display "Quantite :",fPot_quantite
+                                     display "Effet :", fPot_effet
+                                     display "Prix :", fPot_prix
                                 end-if
                         end-read
                 end-perform
@@ -1684,9 +1684,9 @@
                                 then
                                         move 1 to potionDispo
                                         move fPot_nom to potionAchatNom
-                                        move fPot_quantite 
+                                        move fPot_quantite
                                            to potionAchatQuantite
-                                        move fPot_prix 
+                                        move fPot_prix
                                            to potionAchatPrix
                                 end-if
                         end-read
@@ -1701,7 +1701,7 @@
         if potionDispo = 1 then
                perform SoustraireQuantitePotion
                perform AjoutVente
-               display "Cette potion a bien été achetée"
+               display "Cette potion a bien ete achetee"
         else
                display "Cette potion n'est pas disponible en stock."
         end-if
@@ -1735,7 +1735,7 @@
         close fPot.
 
        AjoutVente.
-       
+
        open input fVen
        move potionAchatNom to fVen_nomPotion
        move potionAchatPrix to fVen_Prix
@@ -1748,10 +1748,10 @@
 
         move 0 to recetteOK
         perform with test after until recetteOK = 1
-        	display "=======LIVRE DE RECETTES======="
+            display "=======LIVRE DE RECETTES======="
                 display "1- Afficher toutes les recettes"
                 display "2- Afficher les recettes utilisant un",
-                "ingrédient"
+                "ingredient"
                 display "3- Rechercher une recette par effet",
                         "de la potion"
                 display "4- Rechercher une recette par nom de la potion"
@@ -1767,7 +1767,7 @@
                 when 1
                         perform AfficherTouteRecette
                 when 2
-                        perform AfficherRecetteIngrédient
+                        perform AfficherRecetteIngredient
                 when 3
                         perform AfficherRecetteEffet
                 when 4
@@ -1800,9 +1800,9 @@
                 NOT INVALID KEY
                         DISPLAY "#", recettePotionCnt
                         DISPLAY fPot_nom
-                        display "---------------------------------------"
+                        display "--------------------------------------"
                         MOVE 0 TO recettePotionOK
-                        PERFORM WITH TEST AFTER UNTIL recettePotionOk = 1
+                        PERFORM WITH TEST AFTER UNTIL recettePotionOk =1
                                 READ fRec NEXT
                                 AT END MOVE 1 TO recettePotionOk
                                 NOT AT END
@@ -1832,7 +1832,7 @@
               perform Client
         end-if.
 
-      *> Consulter recettes par nom de la potion résultante
+      *> Consulter recettes par nom de la potion resultante
         AfficherRecetteNom.
 
         DISPLAY "Entrer un nom de potion"
@@ -1876,11 +1876,11 @@
 
 
 
-       AfficherRecetteIngrédient.
+       AfficherRecetteIngredient.
 
-*> Lister les ingrédients ici
+      *> Lister les ingredients ici
 
-       DISPLAY "Entrer un ingrédient de potion"
+       DISPLAY "Entrer un ingredient de potion"
        OPEN INPUT fRec
        ACCEPT recetteInChoix
        MOVE recetteInChoix TO fRec_ingredient
@@ -1914,7 +1914,7 @@
 
 
 
-      *> Consulter les recettes par effet de la potion résultante
+      *> Consulter les recettes par effet de la potion resultante
 
         AfficherRecetteEffet.
 
@@ -1979,15 +1979,15 @@
 
 
 
-      *> Menu créer une potion
+      *> Menu creer une potion
         CreerPotion.
 
 
         move 0 to createOK
         perform with test after until createOK = 1
-        	display "=======CRÉATION POTION======="
-        	display "Séléctionner une potion à créer à partir de :"
-        	display " "
+            display "=======CRÉATION POTION======="
+            display "Selectionner une potion a creer a  partir de :"
+            display " "
                 display "1- Livre de recette complet"
                 display "2- Recherche de recette par effet",
                         "de la potion"
@@ -2024,7 +2024,7 @@
 
 
 
-      *> Créer potion à partir de l'affichage de toutes les recettes
+      *> Creer potion �  partir de l'affichage de toutes les recettes
         CreateAfficherTouteRecette.
 
         MOVE 0 TO createRecettePotionCnt
@@ -2042,14 +2042,14 @@
                 NOT INVALID KEY
                         DISPLAY createRecettePotionCnt,
                         " - ", fPot_nom
-                        display "---------------------------------------"
+                        display "--------------------------------------"
                         MOVE 0 TO createRecettePotionOK
                         PERFORM WITH TEST
                         AFTER UNTIL createRecettePotionOk=1
                                 READ fRec NEXT
                                 AT END MOVE 1 TO createRecettePotionOk
                                 NOT AT END
-     *>                                   IF fRec_nom = fPot_nom THEN
+      *>                                   IF fRec_nom = fPot_nom THEN
                                                 DISPLAY "Ordre :",
                                                  fRec_ordre
 
@@ -2061,7 +2061,7 @@
                                                 display " "
                                                 add 1 to
                                                 createRecettePotionCnt
-     *>                                   END-IF
+      *>                                   END-IF
                                 END-READ
                        END-PERFORM
                        display "---------------------------------------"
@@ -2071,13 +2071,13 @@
         CLOSE fRec
         CLOSE fPot
 
-      *>Vrf = vérification, Trg = target
+      *>Vrf = verification, Trg = target
         OPEN I-O fRec
         OPEN I-O fPot
         OPEN I-O fIn
         MOVE 1 TO createRecettePotionValid
         MOVE 0 TO createRecettePotionVrf
-        DISPLAY "entrer le nom de la potion souhaité"
+        DISPLAY "entrer le nom de la potion souhaite"
         ACCEPT createRecettePotionTrg
         MOVE createRecettePotionTrg TO fPot_nom
         PERFORM WITH TEST AFTER UNTIL createRecettePotionVrf = 1
@@ -2088,7 +2088,7 @@
                         display fRec_nom
                         START fRec, KEY IS = fRec_nom
                         INVALID KEY DISPLAY "ERR:potionWithoutRecipe"
-                        	    MOVE 1 TO createRecettePotionVrf
+                                MOVE 1 TO createRecettePotionVrf
                         NOT INVALID KEY
       *> Retour                 -THERE
 
@@ -2098,11 +2098,11 @@
                         READ fRec NEXT
                         AT END MOVE 1 TO createRecettePotionOk2
                         NOT AT END
-                        	Display fRec_nom, ":", createRecettePotionTrg
-                                IF fRec_nom = createRecettePotionTrg THEN
-                                        MOVE fRec_ingredient TO fIn_nomIn
-                                        display fIn_nomIn
-                                        READ fIn
+                          Display fRec_nom, ":", createRecettePotionTrg
+                              IF fRec_nom = createRecettePotionTrg THEN
+                                      MOVE fRec_ingredient TO fIn_nomIn
+                                      display fIn_nomIn
+                                      READ fIn
       *> Retour2                        -THERE
 
         INVALID KEY DISPLAY "ERR:noSuchIngredient"
@@ -2129,38 +2129,38 @@
 
                         IF createRecettePotionValid = 1 THEN
 
-		                MOVE createRecettePotionTrg TO fRec_nom
-		                display fRec_nom
-		                START fRec, KEY IS = fRec_nom
-		                INVALID KEY DISPLAY "ERR:potionWithoutRecipe"
-		                	    MOVE 1 TO createRecettePotionVrf
-		                NOT INVALID KEY
-		                	MOVE 0 TO createRecettePotionOK2
+                        MOVE createRecettePotionTrg TO fRec_nom
+                        display fRec_nom
+                        START fRec, KEY IS = fRec_nom
+                        INVALID KEY DISPLAY "ERR:potionWithoutRecipe"
+                                MOVE 1 TO createRecettePotionVrf
+                        NOT INVALID KEY
+                            MOVE 0 TO createRecettePotionOK2
 
-	                PERFORM WITH TEST AFTER UNTIL createRecettePotionOk2 = 1
-	                READ fRec NEXT
-	                AT END MOVE 1 TO createRecettePotionOk2
-	                NOT AT END
-	                IF fRec_nom = createRecettePotionTrg THEN
-	                MOVE fRec_ingredient TO fIn_nomIn
-	                READ fIn
-	                INVALID KEY DISPLAY "ERR:noSuchIngredient"
-	                NOT INVALID KEY
-	                subtract fRec_quantite from fIn_quantite
-	                REWRITE tamp_fIn END-REWRITE
-	                DISPLAY "..."
+                PERFORM WITH TEST AFTER UNTIL createRecettePotionOk2 = 1
+                READ fRec NEXT
+                AT END MOVE 1 TO createRecettePotionOk2
+                NOT AT END
+                IF fRec_nom = createRecettePotionTrg THEN
+                MOVE fRec_ingredient TO fIn_nomIn
+                READ fIn
+                INVALID KEY DISPLAY "ERR:noSuchIngredient"
+                NOT INVALID KEY
+                subtract fRec_quantite from fIn_quantite
+                REWRITE tamp_fIn END-REWRITE
+                DISPLAY "..."
 
 
-		                                        END-READ
-		                                        END-IF
-		                                END-READ
-		                        END-PERFORM
-		                END-START
+                                            END-READ
+                                            END-IF
+                                    END-READ
+                            END-PERFORM
+                    END-START
 
-		        	add 1 to fPot_quantite
-		        	rewrite tamp_fPot end-rewrite
-		        	DISPLAY "INGREDIENTS CONSOMMES"
-		        	DISPLAY "POTION CREEE"
+                    add 1 to fPot_quantite
+                    rewrite tamp_fPot end-rewrite
+                    DISPLAY "INGREDIENTS CONSOMMES"
+                    DISPLAY "POTION CREEE"
                 END-READ
         END-PERFORM
 
@@ -2177,7 +2177,7 @@
 
 
 
-      *> Créer une potion à partir de la recherche par nom
+      *> Creer une potion �  partir de la recherche par nom
 
         CreateAfficherRecetteNom.
 
@@ -2214,7 +2214,7 @@
         MOVE 0 TO createRecettePotionVrf
         MOVE 1 TO createRecettePotionValid
         MOVE createRecettePotionChoix TO createRecettePotionTrg
-        DISPLAY "Souhaitez-vous créer cette potion ? 1- OUI 0- NON"
+        DISPLAY "Souhaitez-vous creer cette potion ? 1- OUI 0- NON"
         ACCEPT createRecettePotionVrf
 
         IF createRecettePotionVrf = 1 THEN
@@ -2237,8 +2237,8 @@
                         AT END MOVE 1 TO createRecettePotionOk2
                         NOT AT END
                                 IF fRec_nom = recettePotionChoix THEN
-                                        MOVE fRec_ingredient TO fIn_nomIn
-                                        READ fIn
+                                      MOVE fRec_ingredient TO fIn_nomIn
+                                      READ fIn
       *> Retour2                        -THERE
 
         INVALID KEY DISPLAY "ERR:noSuchIngredient"
@@ -2263,15 +2263,15 @@
                         END-START
 
 
-                 	IF createRecettePotionValid = 1 THEN
+                     IF createRecettePotionValid = 1 THEN
 
-		                MOVE createRecettePotionTrg TO fRec_nom
-		                display fRec_nom
-		                START fRec, KEY IS = fRec_nom
-		                INVALID KEY DISPLAY "ERR:potionWithoutRecipe"
-		                	    MOVE 1 TO createRecettePotionVrf
-		                NOT INVALID KEY
-		                	MOVE 0 TO createRecettePotionOK2
+                        MOVE createRecettePotionTrg TO fRec_nom
+                        display fRec_nom
+                        START fRec, KEY IS = fRec_nom
+                        INVALID KEY DISPLAY "ERR:potionWithoutRecipe"
+                                MOVE 1 TO createRecettePotionVrf
+                        NOT INVALID KEY
+                            MOVE 0 TO createRecettePotionOK2
 
 
                 PERFORM WITH TEST AFTER UNTIL createRecettePotionOk2 = 1
@@ -2287,17 +2287,17 @@
                 REWRITE tamp_fIn END-REWRITE
                 DISPLAY "..." , "#", cr_fIn
 
-		                                        END-READ
-		                                        END-IF
-		                                END-READ
-		                        END-PERFORM
-		                END-START
+                                                END-READ
+                                                END-IF
+                                        END-READ
+                                END-PERFORM
+                        END-START
 
-		        	add 1 to fPot_quantite
-		        	rewrite tamp_fPot end-rewrite
-		        	display cr_fPot
-		        	DISPLAY "INGREDIENTS CONSOMMES"
-		        	DISPLAY "POTION CREEE"
+                    add 1 to fPot_quantite
+                    rewrite tamp_fPot end-rewrite
+                    display cr_fPot
+                    DISPLAY "INGREDIENTS CONSOMMES"
+                    DISPLAY "POTION CREEE"
 
 
                 END-READ
@@ -2322,7 +2322,7 @@
 
 
 
-     *> Créer une potion selon l'effet résultant
+       *> Cr�er une potion selon l'effet resultant
 
         CreateAfficherRecetteEffet.
 
@@ -2382,7 +2382,7 @@
         OPEN I-O fPot
         OPEN I-O fIn
         MOVE 0 TO createRecettePotionVrf
-        DISPLAY "entrer le nom de la potion souhaité"
+        DISPLAY "entrer le nom de la potion souhaite"
         ACCEPT createRecettePotionTrg
         MOVE createRecettePotionTrg TO fPot_nom
         PERFORM WITH TEST AFTER UNTIL createRecettePotionVrf = 1
@@ -2401,8 +2401,8 @@
                         AT END MOVE 1 TO createRecettePotionOk2
                         NOT AT END
                                 IF fRec_nom = recettePotionChoix THEN
-                                        MOVE fRec_ingredient TO fIn_nomIn
-                                        READ fIn
+                                      MOVE fRec_ingredient TO fIn_nomIn
+                                      READ fIn
       *> Retour2                        -THERE
 
         INVALID KEY DISPLAY "ERR:noSuchIngredient"
@@ -2428,13 +2428,13 @@
 
                         IF createRecettePotionValid = 1 THEN
 
-		                MOVE createRecettePotionTrg TO fRec_nom
-		                display fRec_nom
-		                START fRec, KEY IS = fRec_nom
-		                INVALID KEY DISPLAY "ERR:potionWithoutRecipe"
-		                	    MOVE 1 TO createRecettePotionVrf
-		                NOT INVALID KEY
-		                	MOVE 0 TO createRecettePotionOK2
+                        MOVE createRecettePotionTrg TO fRec_nom
+                        display fRec_nom
+                        START fRec, KEY IS = fRec_nom
+                        INVALID KEY DISPLAY "ERR:potionWithoutRecipe"
+                                MOVE 1 TO createRecettePotionVrf
+                        NOT INVALID KEY
+                            MOVE 0 TO createRecettePotionOK2
 
 
                 PERFORM WITH TEST AFTER UNTIL createRecettePotionOk2 = 1
@@ -2452,17 +2452,17 @@
 
 
 
-		                                        END-READ
-		                                        END-IF
-		                                END-READ
-		                        END-PERFORM
-		                END-START
+                                                END-READ
+                                                END-IF
+                                        END-READ
+                                END-PERFORM
+                        END-START
 
-		        	add 1 to fPot_quantite
-		        	rewrite tamp_fPot end-rewrite
-		        	display cr_fPot
-		        	DISPLAY "INGREDIENTS CONSOMMES"
-		        	DISPLAY "POTION CREEE"
+                    add 1 to fPot_quantite
+                    rewrite tamp_fPot end-rewrite
+                    display cr_fPot
+                    DISPLAY "INGREDIENTS CONSOMMES"
+                    DISPLAY "POTION CREEE"
 
                 END-READ
         END-PERFORM
@@ -2485,17 +2485,17 @@
        MOVE 0 TO StatsPotFin
        MOVE 0 TO totalMoney
        PERFORM WITH TEST AFTER UNTIL StatsPotFin = 1
-       	READ fVen
-       	AT END MOVE 1 TO StatsPotFin
-       	NOT AT END MOVE fVen_nomPotion TO fPot_nom
-       	ADD fVen_Prix TO totalMoney
-       	READ fPot
-       		INVALID KEY DISPLAY "Err:No such a potion"
-       		NOT INVALID KEY ADD fVen_quantite TO fPot_Sold
-       			WRITE tamp_fVen,
-       			END-WRITE
-       	END-READ
-       	END-READ
+           READ fVen
+           AT END MOVE 1 TO StatsPotFin
+           NOT AT END MOVE fVen_nomPotion TO fPot_nom
+           ADD fVen_Prix TO totalMoney
+           READ fPot
+               INVALID KEY DISPLAY "Err:No such a potion"
+               NOT INVALID KEY ADD fVen_quantite TO fPot_Sold
+                   WRITE tamp_fVen,
+                   END-WRITE
+           END-READ
+           END-READ
        END-PERFORM
        CLOSE fVen
        CLOSE fPot
@@ -2510,45 +2510,45 @@
        OPEN input fPot
        PERFORM WITH TEST AFTER UNTIL StatsDisplayPotFin = 1
        MOVE fPot_effet TO ZoneAct
-       	READ fPot NEXT
-       	AT END MOVE 1 TO StatsDisplayPotFin
-       	NOT AT END IF fPot_Sold > StatsMaxPot THEN
-       		MOVE fPot_Sold TO StatsMaxPot
-       		MOVE fPot_nom TO BestPot
-       		END-IF
-       		MOVE fPot_effet TO ZoneTemp
-       		IF ZoneAct NOT = ZoneTemp THEN
-       			IF StatsMaxEff > StatsMaxEffF THEN
-       				MOVE StatsMaxEff TO StatsMaxEffF
-       				MOVE fPot_effet TO BestEff
-       			END-IF
-       			MOVE 0 TO StatsMaxEff
-       			DISPLAY fPot_effet
-       		END-IF
-       	END-READ
-       	display StatsDisplayPotFin
+           READ fPot NEXT
+           AT END MOVE 1 TO StatsDisplayPotFin
+           NOT AT END IF fPot_Sold > StatsMaxPot THEN
+               MOVE fPot_Sold TO StatsMaxPot
+               MOVE fPot_nom TO BestPot
+               END-IF
+               MOVE fPot_effet TO ZoneTemp
+               IF ZoneAct NOT = ZoneTemp THEN
+                   IF StatsMaxEff > StatsMaxEffF THEN
+                       MOVE StatsMaxEff TO StatsMaxEffF
+                       MOVE fPot_effet TO BestEff
+                   END-IF
+                   MOVE 0 TO StatsMaxEff
+                   DISPLAY fPot_effet
+               END-IF
+           END-READ
+           display StatsDisplayPotFin
        END-PERFORM
        CLOSE fPot
-    *> init de  effet ça va passer sur tt les zones, faut vérifier quand ça change de zone
-    *> et chaque changement de zone tu refait le calcul
+       *> init de  effet ça va passer sur tt les zones, faut verifier quand ça change de zone
+       *> et chaque changement de zone tu refait le calcul
 
        OPEN input fIn
        PERFORM WITH TEST AFTER UNTIL ValStoInFin = 1
                 READ fIn NEXT
                 AT END MOVE 1 TO ValStoInFin
                 NOT AT END
-                       MULTIPLY fIn_quantite BY fIn_prix GIVING ValStoInT
-                       ADD ValStoInT TO ValStoIn
+                     MULTIPLY fIn_quantite BY fIn_prix GIVING ValStoInT
+                     ADD ValStoInT TO ValStoIn
                 END-READ
         END-PERFORM
         CLOSE fIn
 
        Display "===============Statistiques===================="
 
-       DISPLAY "Meilleur Ventes Potions :" , BestPot, "(",StatsMaxPot,")"
-       DISPLAY "Meilleur Ventes Effets :" , BestEff, "(",StatsMaxEffF,")"
+       DISPLAY "Meilleur Ventes Potions :" ,BestPot, "(",StatsMaxPot,")"
+       DISPLAY "Meilleur Ventes Effets :" ,BestEff, "(",StatsMaxEffF,")"
        DISPLAY "Argent total ce mois ci :", totalMoney
-       DISPLAY "Valeur du stock d'ingrédient :", ValStoIn
+       DISPLAY "Valeur du stock d'ingredient :", ValStoIn
        if roleUser = 0 then
               perform Alchimiste
        else
@@ -2562,19 +2562,15 @@
        OPEN input fPot
        PERFORM WITH TEST AFTER UNTIL ListEffetsFin = 1
        MOVE fPot_effet TO ListEffZoneAct
-       	READ fPot NEXT
-       	AT END MOVE 1 TO ListEffetsFin
-       	NOT AT END
-       		MOVE fPot_effet TO ListEffZoneTemp
-       		IF ListEffZoneAct NOT = ListEffZoneTemp THEN
-       		  display "---------------------------------------"
-       			DISPLAY fPot_effet
+           READ fPot NEXT
+           AT END MOVE 1 TO ListEffetsFin
+           NOT AT END
+               MOVE fPot_effet TO ListEffZoneTemp
+               IF ListEffZoneAct NOT = ListEffZoneTemp THEN
+                 display "---------------------------------------"
+                   DISPLAY fPot_effet
             display "---------------------------------------"
-       		END-IF
-       	END-READ
+               END-IF
+           END-READ
        END-PERFORM
        CLOSE fPot.
-
-
-
-    
