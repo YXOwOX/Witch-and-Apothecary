@@ -156,6 +156,8 @@
         77 ingPrix PIC 9(4).
         77 result PIC 9(5).
         77 ventesFin PIC 9.
+        77 ventesJFin PIC 9.
+        77 datedo PIC A(22).
 
 
 
@@ -181,6 +183,13 @@
                 open output fPot
         end-if
         close fPot
+
+        open i-o fVen
+        if cr_fVen = 35
+        then
+                open output fVen
+        end-if
+        close fVen
 
         open i-o fCom
         if cr_fCom = 35
@@ -250,7 +259,7 @@
         move 48 to fIn_prix
         write tamp_fIn
 
-        move "fleur des vents" to fIn_nomIn
+        move "Fleur des vents" to fIn_nomIn
         move 10 to fIn_quantite
         move "plante" to fIn_type
         move 65 to fIn_prix
@@ -268,7 +277,7 @@
         move 110 to fIn_prix
         write tamp_fIn
 
-        move "champignon noir" to fIn_nomIn
+        move "Champignon noir" to fIn_nomIn
         move 642 to fIn_quantite
         move "champignon" to fIn_type
         move 64 to fIn_prix
@@ -310,7 +319,7 @@
         move 107 to fIn_prix
         write tamp_fIn
 
-        move "etagere de soufre" to fIn_nomIn
+        move "Etagere de soufre" to fIn_nomIn
         move 240 to fIn_quantite
         move "champignon" to fIn_type
         move 118 to fIn_prix
@@ -322,7 +331,7 @@
         move 91 to fIn_prix
         write tamp_fIn
 
-        move "pythonissam boletus" to fIn_nomIn
+        move "Pythonissam boletus" to fIn_nomIn
         move 266 to fIn_quantite
         move "champignon" to fIn_type
         move 139 to fIn_prix
@@ -403,7 +412,7 @@
 
         move 3 to fRec_id
         move "Vol d hirondelle" to fRec_nom
-        move "fleur des vents" to fRec_ingredient
+        move "Fleur des vents" to fRec_ingredient
         move "3" to fRec_quantite
         move "3" to fRec_ordre
         write tamp_fRec
@@ -676,7 +685,7 @@
 
         move 42 to fRec_id
         move "Etoile du matin" to fRec_nom
-        move "champignon vert" to fRec_ingredient
+        move "Champignon vert" to fRec_ingredient
         move "1" to fRec_quantite
         move "2" to fRec_ordre
         write tamp_fRec
@@ -953,12 +962,12 @@
         write tamp_fPot
 
         move "Vision de chat" to fPot_nom
-        move 0 to fPot_quantite
+        move 2 to fPot_quantite
         move "Nyctalopie" to fPot_effet
         write tamp_fPot
 
         move "Tache de salamandre" to fPot_nom
-        move 0 to fPot_quantite
+        move 1 to fPot_quantite
         move "Potion de feu" to fPot_effet
         write tamp_fPot
 
@@ -973,7 +982,7 @@
         write tamp_fPot
 
         move "Tempete de Zeus" to fPot_nom
-        move 0 to fPot_quantite
+        move 5 to fPot_quantite
         move "Foudre" to fPot_effet
         write tamp_fPot
 
@@ -988,7 +997,7 @@
         write tamp_fPot
 
         move "Rage d Odin" to fPot_nom
-        move 0 to fPot_quantite
+        move 11 to fPot_quantite
         move "Bersserker" to fPot_effet
         write tamp_fPot
 
@@ -1145,6 +1154,7 @@
                         IF cr_fCom = 00 THEN
                             DISPLAY "COMPTE CREE"
                         END-IF
+                        close fCom
 
                 when 0
                         display "Vous quittez."
@@ -1397,14 +1407,20 @@
         move fIn_type to typeIng
         open input fIn
         move 0 to ingredientFin
-        start fPot, key is = fIn_type
+        display fIn_type
+        start fIn, key is = fIn_type
         invalid key display "Pas d'ingredient de ce type existant"
         not invalid key
                 display "---------------------------------------"
                 perform with test after until ingredientFin = 1
                         read fIn next
-                        at end move 1 to ingredientFin
-                        not at end
+                        AT END
+                        display fIn_type
+
+                         move 1 to ingredientFin
+                        NOT AT END
+                        display fIn_type
+                        display typeIng
                                 if fIn_type = typeIng
                                 then
 
@@ -1433,7 +1449,7 @@
         move fIn_nomIn to nomIng
         open input fIn
         move 0 to ingredientFin
-        start fPot, key is = fIn_nomIn
+        start fIn, key is = fIn_nomIn
         invalid key display "Pas d'ingredient avec ce nom existant"
         not invalid key
                 display "---------------------------------------"
@@ -1468,8 +1484,7 @@
         move 0 to registreOk
         perform with test after until registreOk = 1
                 display "1- Afficher toutes les ventes"
-                display "2- Rechercher les ventes d’un jour"
-                display "3- Supprimer les ventes"
+                display "2- Rechercher les ventes date a un jour"
                 display "0- Quitter"
                 accept registreChoix
                 if registreChoix >= 0 and registreChoix < 3 then
@@ -1479,12 +1494,10 @@
                 end-if
         end-perform
         evaluate registreChoix
-      *>          when 1
-      *>                  perform AfficherVentes
-      *>          when 2
-      *>                  perform RechercherVentesJour
-                  *> when 3
-                          *> perform SupprimerVentes
+                when 1
+                        perform AfficherVentes
+                when 2
+                        perform RechercherVentesJour
                 when 0
                         display "Vous quittez."
                         if roleUser = 0 then
@@ -1493,30 +1506,64 @@
                                 perform Client
                         end-if
         end-evaluate.
-        *> AfficherVentes.
 
-       *> open input fVen
-       *> move 0 to ventesFin
-       *> PERFORM WITH TEST AFTER UNTIL ventesFin = 1
+        AfficherVentes.
 
-              *> READ fVen NEXT
-              *> AT END
-                *> move 1 to ventesFin
-              *> NOT AT END
-                        *> display " "
-                        *> display "Date :", fVen_id
-                        *> display "--------------------------------------"
-                        *> display "Potion :", fVen_nomPotion
-                        *> display "Quantit� :", fVen_quantite
-                        *> display "Prix :", fVen_prix
-              *> END-READ
-       *> END-PERFORM
-       *> close fVen
-       *> if roleUser = 0 then
-              *> perform Alchimiste
-       *> else
-              *> perform Client
-       *> end-if.
+        open input fVen
+        move 0 to ventesFin
+        PERFORM WITH TEST AFTER UNTIL ventesFin = 1
+
+               READ fVen NEXT
+               AT END
+
+                 display "fin du registre"
+                 move 1 to ventesFin
+               NOT AT END
+                         display " "
+                         display "Date :", fVen_date
+                         display "-------------------------------------"
+                         display "Potion :", fVen_nomPotion
+                         display "Quantite :", fVen_quantite
+                         display "Prix :", fVen_prix
+               END-READ
+        END-PERFORM
+        close fVen
+        if roleUser = 0 then
+               perform Alchimiste
+        else
+               perform Client
+        end-if.
+
+
+        RechercherVentesJour.
+         display "Entrez une date YYYYMMDD"
+          accept fVen_date
+          move fVen_date to datedo
+         open input fVen
+         move 0 to ventesJFin
+         PERFORM WITH TEST AFTER UNTIL ventesJFin = 1
+
+               READ fVen NEXT
+               AT END
+                 display "fin du registre"
+                 move 1 to ventesJFin
+               NOT AT END
+                 if fVen_date = datedo then
+                         display " "
+                         display "Date :", fVen_date
+                         display "-------------------------------------"
+                         display "Potion :", fVen_nomPotion
+                         display "Quantite :", fVen_quantite
+                         display "Prix :", fVen_prix
+                 end-if
+               END-READ
+        END-PERFORM
+        close fVen
+        if roleUser = 0 then
+               perform Alchimiste
+        else
+               perform Client
+        end-if.
 
 
       *> a deplacer
@@ -1737,12 +1784,13 @@
 
        AjoutVente.
 
-       open input fVen
-       move CURRENT-DATE to fVen_date
+       open extend fVen
+       move Function CURRENT-DATE to fVen_date
        move potionAchatNom to fVen_nomPotion
        move potionAchatPrix to fVen_Prix
        move potionAchatQuantite to fVen_quantite
-       write tamp_fVen.
+       write tamp_fVen
+       close fVen.
 
 
       *> Menu Livre Recette
