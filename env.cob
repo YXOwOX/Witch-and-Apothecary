@@ -70,6 +70,7 @@
                 02 fPot_prix PIC 9(4).
         FD fVen.
         01 tamp_fVen.
+                02 fVen_date PIC A(22).
                 02 fVen_nomPotion PIC A(30).
                 02 fVen_quantite PIC 9(4).
                 02 fVen_Prix PIC 9(10).
@@ -1737,6 +1738,7 @@
        AjoutVente.
 
        open input fVen
+       move CURRENT-DATE to fVen_date
        move potionAchatNom to fVen_nomPotion
        move potionAchatPrix to fVen_Prix
        move potionAchatQuantite to fVen_quantite
@@ -2024,7 +2026,7 @@
 
 
 
-      *> Creer potion Ã  partir de l'affichage de toutes les recettes
+      *> Creer potion ï¿½  partir de l'affichage de toutes les recettes
         CreateAfficherTouteRecette.
 
         MOVE 0 TO createRecettePotionCnt
@@ -2177,7 +2179,7 @@
 
 
 
-      *> Creer une potion Ã  partir de la recherche par nom
+      *> Creer une potion ï¿½  partir de la recherche par nom
 
         CreateAfficherRecetteNom.
 
@@ -2322,7 +2324,7 @@
 
 
 
-       *> Créer une potion selon l'effet resultant
+       *> Crï¿½er une potion selon l'effet resultant
 
         CreateAfficherRecetteEffet.
 
