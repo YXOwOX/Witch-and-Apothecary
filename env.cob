@@ -156,7 +156,7 @@
         77 ingPrix PIC 9(4).
         77 result PIC 9(5).
         77 ventesFin PIC 9.
-77 ventesJFin PIC 9.
+        77 ventesJFin PIC 9.
         77 datedo PIC A(22).
 
 
@@ -190,7 +190,7 @@
                 open output fVen
         end-if
         close fVen
-        
+
         open i-o fCom
         if cr_fCom = 35
         then
@@ -1181,7 +1181,7 @@
                             DISPLAY "COMPTE CREE"
                         END-IF
                        close fCom
-               
+
                 when 0
                         display "Vous quittez."
         end-evaluate
@@ -1526,7 +1526,7 @@
                                 perform Client
                         end-if
         end-evaluate.
-         
+
          AfficherVentes.
 
         open input fVen
@@ -1804,8 +1804,8 @@
 
        AjoutVente.
 
-   open extend fVen
-       move Function CURRENT-DATE to fVen_date
+        open extend fVen
+       move Function CURRENT-DATE(1:8) to fVen_date
        move potionAchatNom to fVen_nomPotion
        move potionAchatPrix to fVen_Prix
        move potionAchatQuantite to fVen_quantite
