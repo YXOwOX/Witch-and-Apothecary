@@ -1349,7 +1349,7 @@
         move fIn_nomIn to nomIng
         open input fIn
         move 0 to ingredientFin
-        start fPot, key is = fIn_nomIn
+        start fIn, key is = fIn_nomIn
         invalid key display "Pas d'ingredient avec ce nom existant"
         not invalid key
                 perform with test after until ingredientFin = 1
@@ -1373,7 +1373,7 @@
            move nomIng to fIn_nomIn
            open input fIn
            move 0 to ingredientFin
-           start fPot, key is = fIn_nomIn
+           start Fin, key is = fIn_nomIn
            invalid key display "Pas d'ingredient avec ce nom existant"
            not invalid key
                    perform with test after until ingredientFin = 1
